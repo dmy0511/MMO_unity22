@@ -21,10 +21,10 @@ public class TestCollision : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(Camera.main.transform.position, ray.direction * 100, Color.red, 1.0f);
 
-            LayerMask mask = LasyerMask.GetMask("Moster") | LasyerMask.GetMask("Wall");
+            LayerMask mask = LayerMask.GetMask("Moster") | LayerMask.GetMask("Wall");
 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, mask))
